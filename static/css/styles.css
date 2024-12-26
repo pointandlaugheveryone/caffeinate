@@ -1,0 +1,64 @@
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.dark-mode .navbar {
+    background-color: #1f1f1f;
+}
+
+.dark-mode .card {
+    background-color: #1e1e1e;
+    border-color: #333333;
+}
+
+.dark-mode .btn-dark {
+    background-color: #333333;
+}
+
+.dark-mode a.nav-link {
+    color: #ffffff;
+}
+
+.dark-mode .card-title,
+.dark-mode .card-text {
+    color: #ffffff;
+}
+
+.dark-mode .btn-dark:hover {
+    background-color: #555555;
+}
+
+body, .navbar, .card, .btn-dark, a.nav-link, .card-title, .card-text {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.footer-link {
+    text-decoration: none;
+    color:#b1b1b1
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+.dark-mode .footer-link {
+    color: #555555;
+}
+
+.footer {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.dark-mode .footer .text-muted{
+    color: #555555;
+}
+
+.lead {
+    white-space: pre-line;
+  }
+
+.link {
+    color:#121212;
+}

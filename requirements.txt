@@ -22,6 +22,7 @@ MarkupSafe==3.0.2
 multidict==6.1.0
 mypy-extensions==1.0.0
 propcache==0.2.1
+psycopg2==2.9.10
 pydantic==2.10.4
 pydantic_core==2.27.2
 requests==2.32.3

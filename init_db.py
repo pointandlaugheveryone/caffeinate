@@ -1,11 +1,16 @@
 from config import DATABASE_URI
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, MetaData
 from sqlalchemy.orm import sessionmaker
 from models import Base, Store, Drink
 import os
 
 
 engine = create_engine(DATABASE_URI)
+metadata = MetaData()
+
+metadata.reflect(bind=engine)
+metadata.drop_all(bind=engine, tables=[metadata.tables['drinks'], metadata.tables['stores']])
+
 Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 session = Session()
@@ -20,7 +25,7 @@ penny = Store(name='penny',display_name='Penny', logo_url='images/stores/penny.s
 tesco = Store(name='tesco', display_name='Tesco', logo_url='images/stores/tesco.svg')
 session.add_all([albert, billa, globus, kaufland, lidl, norma, penny, tesco])
 
-cola = Drink(name='limonada-coca-cola', display_name='Coca-Cola', normal_cost=50.4, discount_cost=0, image_url='images/drinks/cola.jpg', is_zero=False)
+cola = Drink(name='limonada-coca-cola', display_name='Coca-Cola', normal_cost=50.4, discount_cost=0, image_url='images/drinks/cola.png', is_zero=False)
 cola_zero = Drink(name='limonada-coca-cola-zero', display_name='Coca-Cola-Zero', normal_cost=50.4, discount_cost=0, image_url='images/drinks/cola-zero.png', is_zero=True)
 pepsi = Drink(name='limonada-pepsi', display_name='Pepsi', normal_cost=46.3, discount_cost=0, image_url='images/drinks/pepsi.png', is_zero=False)
 pepsi_max = Drink(name='limonada-bez-kalorii-max-pepsi', display_name='Pepsi Max', normal_cost=46.3, discount_cost=0, image_url='images/drinks/pepsi-max.png', is_zero=True)

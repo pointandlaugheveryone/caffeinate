@@ -24,7 +24,7 @@ def get_drinks():
 @app.route('/zero')
 def get_zero_drinks():
     zero_drinks = session.query(Drink).filter_by(is_zero=True, discount=True).all()
-    return render_template('zero.html', drinks=zero_drinks, dark_mode=True)
+    return render_template('zeromode.html', drinks=zero_drinks, dark_mode=True)
 
 
 @app.route('/about')
