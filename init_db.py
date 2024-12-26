@@ -8,9 +8,6 @@ import os
 engine = create_engine(DATABASE_URI)
 metadata = MetaData()
 
-metadata.reflect(bind=engine)
-metadata.drop_all(bind=engine, tables=[metadata.tables['drinks'], metadata.tables['stores']])
-
 Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 session = Session()

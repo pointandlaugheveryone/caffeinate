@@ -23,6 +23,7 @@
                         {% if drink.store and drink.store.logo_url %}
                         <img src="{{ url_for('static', filename=drink.store.logo_url) }}" 
                              alt="{{ drink.store.display_name }}" 
+                             class="store-logo" 
                              style="height: 25px; object-fit: contain;">
                         {% endif %}
                     </div>
