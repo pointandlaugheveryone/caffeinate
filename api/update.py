@@ -1,3 +1,4 @@
+import asyncio
 from kupi import update_prices
 
 async def handler(event, context):

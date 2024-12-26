@@ -1,7 +1,7 @@
 from sqlalchemy import Column, Integer, String, Float, ForeignKey, Table, create_engine, Boolean
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
-from config import DATABASE_URI
+from config import DATABASE_URL
 
 
 Base = declarative_base()
@@ -31,7 +31,7 @@ class Drink(Base):
     store = relationship('Store')
 
 
-engine = create_engine(DATABASE_URI)
+engine = create_engine(DATABASE_URL)
 Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 session = Session()

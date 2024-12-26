@@ -1,17 +1,16 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, session
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
 from apscheduler.schedulers.background import BackgroundScheduler
 
-from config import DATABASE_URI
-from flask import Flask, render_template, session
+from config import DATABASE_URL
 from models import Drink
 from kupi import update_prices  
 
 
 app = Flask(__name__)
 
-engine = create_engine(DATABASE_URI)
+engine = create_engine(DATABASE_URL)
 session = scoped_session(sessionmaker(bind=engine))
 
 

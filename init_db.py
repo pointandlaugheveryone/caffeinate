@@ -1,11 +1,11 @@
-from config import DATABASE_URI
+from config import DATABASE_URL
 from sqlalchemy import create_engine, MetaData
 from sqlalchemy.orm import sessionmaker
 from models import Base, Store, Drink
 import os
 
 
-engine = create_engine(DATABASE_URI)
+engine = create_engine(DATABASE_URL)
 metadata = MetaData()
 
 Base.metadata.create_all(engine)
