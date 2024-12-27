@@ -8,7 +8,7 @@ from models import Drink
 from kupi import update_prices  
 
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="../templates", static_folder="../static")
 
 engine = create_engine(DATABASE_URL)
 session = scoped_session(sessionmaker(bind=engine))
