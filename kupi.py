@@ -1,46 +1,53 @@
-'''
-TODO: WRITE OWN PARSER!!!
-The pykupi parser im using does not provide access to drink amount
-eg. 6 bottles = higher price -> I am filtering those offers out;
-This file will (eventually, hopefully) get a big rewrite
-'''
-
 import asyncio
 from parser import KupiParser
-from models import session, Drink, Store
+from models import session, Store, Drink
+import logging
 
+
+def clear(drink: Drink):
+    drink.discount = False
+    drink.discount_cost = 0
 
 async def update_prices():
     parser = KupiParser()
-    drinks = session.query(Drink).all()
+    drinks = session. query(Drink).all()
     stores = session.query(Store).all()
     stores_table = {store.name: store for store in stores}
 
-    try:
-        for drink in drinks:
-            raw = await parser.get_prices(drink.name)
-            # to filter out offers from obscure stores nobody knows
-            # very ugly line I know
-            filtered_offers = [offer for offer in raw.offers if offer.offered_by.lower() in stores_table]
+    try: 
+        for drink in drinks: 
+            try:
+                raw = await parser. get_prices(drink.name)
+                filtered_offers = []
+                for offer in raw.offers:
+                    store_name = offer.offered_by if isinstance(offer.offered_by, str) else getattr(offer.offered_by, 'name', str(offer.offered_by))
+                    if store_name. lower() in stores_table:
+                        filtered_offers.append(offer)
 
-            if filtered_offers:
-                lowest_cost = filtered_offers[0].price
-                if lowest_cost < drink.normal_cost:
-                    drink.discount = True
-                    drink.discount_cost = lowest_cost
-                    display_store_name = filtered_offers[0].offered_by.lower()
-                    drink.store = stores_table[display_store_name]
-                else:
-                    drink.discount = False
-                    drink.discount_cost = 0
+                if filtered_offers:
+                    lowest_cost = getattr(filtered_offers[0], 'price', getattr(filtered_offers[0], 'cost', 0))
+                    if lowest_cost and lowest_cost < drink.normal_cost:
+                        drink.discount = True
+                        drink.discount_cost = lowest_cost
+                        drink.offered_amount = getattr(filtered_offers[0], 'amount', '')
+                        
+                        if isinstance(filtered_offers[0]. offered_by, str):
+                            store_name = filtered_offers[0].offered_by
+                        else:
+                            store_name = getattr(filtered_offers[0]. offered_by, 'name', str(filtered_offers[0]. offered_by))
+                        drink.store = stores_table[store_name. lower()]
+                    else: clear(drink)
+                else: clear(drink)
+                    
+            except Exception as e:
+                logging.error(f"problem parsing drink {drink.name}: {e}")
+                clear(drink)
+                continue
+                
         session.commit()
     finally:
         await parser.session.close()
-
-# necessary for vercel to work?? I copypasted this
-def handler(event, context):
-    asyncio.run(update_prices())
-    return {"status": "Update completed"}
+        
 
 if __name__ == "__main__":
     asyncio.run(update_prices())

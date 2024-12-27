@@ -1,13 +1,11 @@
-from config import DATABASE_URL
 from sqlalchemy import create_engine, MetaData
 from sqlalchemy.orm import sessionmaker
 from models import Base, Store, Drink
-import os
 
 
+DATABASE_URL=os.getenv('DATABASE_URL')
 engine = create_engine(DATABASE_URL)
 metadata = MetaData()
-
 Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 session = Session()
@@ -26,7 +24,7 @@ cola = Drink(name='limonada-coca-cola', display_name='Coca-Cola', normal_cost=50
 cola_zero = Drink(name='limonada-coca-cola-zero', display_name='Coca-Cola-Zero', normal_cost=50.4, discount_cost=0, image_url='images/drinks/cola-zero.png', is_zero=True)
 pepsi = Drink(name='limonada-pepsi', display_name='Pepsi', normal_cost=46.3, discount_cost=0, image_url='images/drinks/pepsi.png', is_zero=False)
 pepsi_max = Drink(name='limonada-bez-kalorii-max-pepsi', display_name='Pepsi Max', normal_cost=46.3, discount_cost=0, image_url='images/drinks/pepsi-max.png', is_zero=True)
-kofola = Drink(name='kofola', display_name='Kofola 🇨🇿', normal_cost=40.4, discount_cost=0, image_url='images/drinks/kofola.png', is_zero=False)
+kofola = Drink(name='kofola', display_name='Kofola', normal_cost=40.4, discount_cost=0, image_url='images/drinks/kofola.png', is_zero=False)
 kofola_sf = Drink(name='kofola-bez-cukru', display_name='Kofola bez cukru', normal_cost=40.4, discount_cost=0, image_url='images/drinks/kofola-bez-cukru.png', is_zero=True)
 eiskaffee = Drink(name='ledova-kava-hochwald', display_name='EisKaffee', normal_cost=32.3, discount_cost=0, image_url='images/drinks/eiskaffee.png', is_zero=False)
 eiskaffee_light = Drink(name='ledova-kava-light-hochwald', display_name='EisKaffee light', normal_cost=32.3, discount_cost=0, image_url='images/drinks/eiskaffee-light.png', is_zero=True)

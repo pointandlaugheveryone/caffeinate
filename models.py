@@ -1,7 +1,7 @@
-from sqlalchemy import Column, Integer, String, Float, ForeignKey, Table, create_engine, Boolean
+import os
+from sqlalchemy import Column, Integer, String, Float, ForeignKey, create_engine, Boolean
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
-from config import DATABASE_URL
 
 
 Base = declarative_base()
@@ -26,11 +26,13 @@ class Drink(Base):
     image_url = Column(String(200))
     is_zero = Column(Boolean, default=False)
     discount = Column(Boolean, default=False)
+    offered_amount = Column(String(100))
 
     store_id = Column(Integer, ForeignKey('stores.id'))
     store = relationship('Store')
 
 
+DATABASE_URL=os.getenv('DATABASE_URL')
 engine = create_engine(DATABASE_URL)
 Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)

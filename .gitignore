@@ -1,6 +1,6 @@
-__pycache__
+*__pycache__*
 /.venv
 /.vscode
-__pycache__/
 .vercel
-/secrets
+cfn/
+.*/

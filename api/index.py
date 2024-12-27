@@ -1,15 +1,20 @@
+import os, sys
+from pathlib import Path
+# from dotenv import load_dotenv
 from flask import Flask, render_template, session
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
 from apscheduler.schedulers.background import BackgroundScheduler
 
-from config import DATABASE_URL
+parent_dir = str(Path(__file__).parent.parent)
+sys.path.append(parent_dir)
 from models import Drink
 from kupi import update_prices  
 
 
 app = Flask(__name__, template_folder="../templates", static_folder="../static")
-
+load_dotenv()
+DATABASE_URL=os.getenv('DATABASE_URL')
 engine = create_engine(DATABASE_URL)
 session = scoped_session(sessionmaker(bind=engine))
 

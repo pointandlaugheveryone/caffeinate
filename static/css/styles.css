@@ -10,6 +10,7 @@
 .dark-mode .card {
     background-color: #1e1e1e;
     border-color: #333333;
+    color:#ffffffd4;
 }
 
 .dark-mode .btn-dark {
@@ -68,4 +69,40 @@ body, .navbar, .card, .btn-dark, a.nav-link, .card-title, .card-text {
     margin-left: auto;
     margin-right: 0;
 }
+
+@media (max-width: 720px) {
+    #zeroModeToggle {
+        background-color: black;
+        color: #ffffffd4;
+    }
+
+    .navbar-brand.d-lg-none {
+        margin-left: 0;
+    }
+
+    .navbar-toggler,
+    .navbar-brand.d-lg-none {
+        margin-bottom: 0;
+    }
+}
+
+@media screen and (min-width: 720px) {
+    #zeroModeToggle {
+        position: absolute;
+        right: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 2;
+        background-color: black;
+        color: #ffffffd4;
+    }
+}
+
+.navbar-brand img {
+    /* Adjust the size and alignment as needed */
+    width: 30px;
+    height: 30px;
+}
+
+
 

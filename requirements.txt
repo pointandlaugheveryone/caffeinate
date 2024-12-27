@@ -11,6 +11,7 @@ cached-property==2.0.1
 certifi==2024.12.14
 charset-normalizer==3.4.1
 click==8.1.8
+dotenv==0.9.9
 Flask==3.1.0
 frozenlist==1.5.0
 greenlet==3.1.1
@@ -18,13 +19,15 @@ idna==3.10
 inflection==0.5.1
 itsdangerous==2.2.0
 Jinja2==3.1.5
+logging==0.4.9.6
 MarkupSafe==3.0.2
 multidict==6.1.0
 mypy-extensions==1.0.0
 propcache==0.2.1
-psycopg2-binary~=2.9.6
+psycopg2-binary==2.9.11
 pydantic==2.10.4
 pydantic_core==2.27.2
+python-dotenv==1.2.1
 requests==2.32.3
 soupsieve==2.6
 SQLAlchemy==2.0.36

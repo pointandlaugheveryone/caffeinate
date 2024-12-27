@@ -16,6 +16,8 @@ class KupiParser(BaseClient):
         page_url = get_page_url(KupiSection.DISCOUNT, item_id)
         results = await self.request(page_url)
         discount = Discount(**results)
+
         if max_price or min_price:
             discount.filter_offers_by_price(min_price, max_price)
+            
         return discount

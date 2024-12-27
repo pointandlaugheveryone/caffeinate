@@ -1,6 +1,15 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero Mode</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+{% extends "./base.html" %}
 
 {% block content %}
+
 <body class="dark-mode">
     <div class="row row-cols-2 row-cols-md-3 g-4">
         {% for drink in drinks %}
@@ -17,14 +26,17 @@
                     <h5 class="card-title">{{ drink.display_name }}</h5>
                     <div class="mt-auto">
                         <p class="card-text mb-1">
-                            <span class="text-decoration-line-through text-muted">{{ drink.normal_cost }}0 Kč</span>
+                            <span class="text-decoration-line-through" style="color: #ffffff9a">{{ drink.normal_cost }}0 Kč</span>
                             <span class="text-danger fw-bold ms-2">{{ drink.discount_cost }}0 Kč</span>
+                            <span style="color: #ffffffd4; font-size: 0.85em;">{{drink.offered_amount}}</span>
                         </p>
                         {% if drink.store and drink.store.logo_url %}
-                        <img src="{{ url_for('static', filename=drink.store.logo_url) }}" 
-                             alt="{{ drink.store.display_name }}" 
-                             class="store-logo" 
-                             style="height: 25px; object-fit: contain;">
+                        <div class="mt-2">
+                            <img src="{{ url_for('static', filename=drink.store.logo_url) }}" 
+                                 alt="{{ drink.store.display_name }}" 
+                                 class="store-logo" 
+                                 style="height: 25px; object-fit: contain;">
+                        </div>
                         {% endif %}
                     </div>
                 </div>
@@ -34,4 +46,5 @@
     </div>
 </body>
 {% endblock %}
+</html>
 
