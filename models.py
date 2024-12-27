@@ -26,6 +26,7 @@ class Drink(Base):
     image_url = Column(String(200))
     is_zero = Column(Boolean, default=False)
     discount = Column(Boolean, default=False)
+    offered_amount = Column(String(100))
 
     store_id = Column(Integer, ForeignKey('stores.id'))
     store = relationship('Store')
