@@ -69,10 +69,3 @@ body, .navbar, .card, .btn-dark, a.nav-link, .card-title, .card-text {
     margin-right: 0;
 }
 
-@media (max-width: 576px) {
-    #zeroModeToggle {
-      display: block;
-      margin: 0 auto 0.5rem auto;
-      position: relative;
-    }
-  }
