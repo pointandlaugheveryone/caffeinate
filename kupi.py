@@ -13,7 +13,7 @@ async def update_prices():
         for drink in drinks:
             raw = await parser.get_prices(drink.name)
             # to filter out offers from obscure stores nobody knows
-            # very ugly line I know
+            # very ugly line
             filtered_offers = [offer for offer in raw.offers if offer.offered_by.lower() in stores_table]
 
             if filtered_offers:

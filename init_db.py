@@ -8,6 +8,8 @@ import os
 engine = create_engine(DATABASE_URL)
 metadata = MetaData()
 
+# Base.metadata.drop_all(engine) -- in case i need to reset the db again
+
 Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 session = Session()

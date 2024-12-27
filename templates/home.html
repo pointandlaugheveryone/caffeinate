@@ -18,7 +18,7 @@
                     <p class="card-text mb-1">
                         <span class="text-decoration-line-through text-muted">{{ drink.normal_cost }}0 Kč</span>
                         <span class="text-danger fw-bold ms-2">{{ drink.discount_cost }}0 Kč</span>
-                        <span class="text-muted">{{drink.offered_amount}}</span>
+                        <span class="text-muted" style="font-size: 0.85em;">{{drink.offered_amount}}</span>
                     </p>
                     {% if drink.store and drink.store.logo_url %}
                     <div class="mt-2">

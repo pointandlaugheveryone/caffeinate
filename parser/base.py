@@ -6,7 +6,7 @@ from typing import Optional
 import aiohttp
 from bs4 import BeautifulSoup
 
-import exceptions
+from . import exceptions
 
 
 log = logging.getLogger("pykupi")
