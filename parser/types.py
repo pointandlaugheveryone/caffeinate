@@ -1,16 +1,16 @@
 from datetime import date
 from typing import List, Union, Optional
-from pydantic import BaseModel, Field, validator
+from pydantic import BaseModel, Field, field_validator
 
 
 __all__ = ["Offer", "Discount"]
-
 
 class Offer(BaseModel):
     offered_by: str = Field(alias="offeredBy")
     price: float
     price_currency: str = Field(alias="priceCurrency")
     valid_until: date = Field(alias="priceValidUntil")
+    amount: Optional[str] = Field(default="various amounts")
 
 
 class Discount(BaseModel):
@@ -20,7 +20,7 @@ class Discount(BaseModel):
     description: str
     offers: List[Offer] = Field(default=[])
 
-    @validator("offers", pre=True)
+    @field_validator("offers", mode="before")
     def extract_offers(cls, v):
         return [Offer(**offer_data) for offer_data in v.get("offers")]
 
