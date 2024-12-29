@@ -14,6 +14,6 @@
 goals & TODO:
 - [ ] write own parser\
 *columns/requires db update:*
-- [ ] track amount of drinks as well (would break the current version)
+- [x] track amount of drinks as well (would break the current version)
 - [ ] sale until [date] 
 - separate site for kávenky
