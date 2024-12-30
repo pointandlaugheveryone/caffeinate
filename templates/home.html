@@ -1,15 +1,10 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="text-center">
-    <span class="text-danger">info</span>
-    <p class="lead">
-      Zero energy drink sales are usually in sync with their normal versions.
-      They will soon get added to the general database.
-    </p>
+<div class="alert alert-info" role="alert">
+    Zero energy drink sales are usually in sync with their normal versions.
+    They will soon get added to the general database.
   </div>
-</div>
-
 <div class="row row-cols-2 row-cols-md-3 g-4">
     {% for drink in drinks %}
     <div class="col">
