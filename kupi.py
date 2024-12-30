@@ -2,6 +2,7 @@ import asyncio
 from parser import KupiParser
 from models import session, Drink, Store
 
+# TODO: update filtering
 
 async def update_prices():
     parser = KupiParser()
