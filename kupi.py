@@ -31,11 +31,7 @@ async def update_prices():
         session.commit()
     finally:
         await parser.session.close()
-
-# necessary for vercel to work?? I copypasted this
-def handler(event, context):
-    asyncio.run(update_prices())
-    return {"status": "Update completed"}
+        
 
 if __name__ == "__main__":
     asyncio.run(update_prices())
