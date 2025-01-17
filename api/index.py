@@ -33,7 +33,7 @@ def about_page():
 
 # fetch prices daily
 scheduler = BackgroundScheduler()
-scheduler.add_job(func=update_prices, trigger='interval', days=1)
+scheduler.add_job(func=update_prices(), trigger='interval', days=1)
 scheduler.start()
 
 if __name__ == "__main__":
