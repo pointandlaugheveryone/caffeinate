@@ -2,7 +2,6 @@ from config import DATABASE_URL
 from sqlalchemy import create_engine, MetaData
 from sqlalchemy.orm import sessionmaker
 from models import Base, Store, Drink
-import os
 
 
 engine = create_engine(DATABASE_URL)
