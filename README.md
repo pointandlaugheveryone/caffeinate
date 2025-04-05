@@ -1,5 +1,5 @@
 ##### a basic web app to help caffeine dependent students save money
-##### [Flask, postgres, bootstrap]
+[Flask, postgres, bootstrap]
 
 - Shows which caffeine drinks currently on sale in most popular czech grocery stores.
 - filtering based on sugar content because caffeine addiction itself is not unhealthy enough lol
