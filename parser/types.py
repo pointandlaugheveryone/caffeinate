@@ -1,10 +1,9 @@
 from datetime import date
 from typing import List, Union, Optional
-
 from pydantic import BaseModel, Field, field_validator
 
-__all__ = ["Offer", "Discount"]
 
+__all__ = ["Offer", "Discount"]
 
 class Offer(BaseModel):
     offered_by: str = Field(alias="offeredBy")
@@ -16,7 +15,7 @@ class Offer(BaseModel):
 
 class Discount(BaseModel):
     name: str
-    brand: Optional[str]
+    brand: str = Field(default="Unknown Brand")
     image: str
     description: str
     offers: List[Offer] = Field(default=[])

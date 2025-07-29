@@ -1,5 +1,5 @@
-BASE_URL = "https://www.kupi.cz"
 
+BASE_URL = "https://www.kupi.cz"
 
 def get_page_url(section, item_id: str = ""):
     return "{}/{}/{}".format(BASE_URL, section, item_id)
