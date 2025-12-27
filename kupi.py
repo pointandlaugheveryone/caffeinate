@@ -1,7 +1,7 @@
 import asyncio
+import logging
 from parser import KupiParser
 from models import session, Store, Drink
-import logging
 
 
 def clear(drink: Drink):

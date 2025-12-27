@@ -1,3 +1,4 @@
+import os
 from sqlalchemy import create_engine, MetaData
 from sqlalchemy.orm import sessionmaker
 from models import Base, Store, Drink
