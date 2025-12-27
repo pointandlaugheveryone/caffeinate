@@ -37,7 +37,6 @@ def about_page():
     return render_template('about.html', dark_mode=False)
 
 
-# fetch prices daily
 def run_async_update():
     asyncio.run(update_prices())
 

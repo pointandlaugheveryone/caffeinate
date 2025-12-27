@@ -19,7 +19,6 @@ idna==3.10
 inflection==0.5.1
 itsdangerous==2.2.0
 Jinja2==3.1.5
-logging==0.4.9.6
 MarkupSafe==3.0.2
 multidict==6.1.0
 mypy-extensions==1.0.0

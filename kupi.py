@@ -1,5 +1,4 @@
 import asyncio
-import logging
 from parser import KupiParser
 from models import session, Store, Drink
 
@@ -40,7 +39,7 @@ async def update_prices():
                 else: clear(drink)
                     
             except Exception as e:
-                logging.error(f"problem parsing drink {drink.name}: {e}")
+                print(f"problem parsing drink {drink.name}: {e}")
                 clear(drink)
                 continue
                 
