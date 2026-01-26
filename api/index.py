@@ -10,12 +10,12 @@ import asyncio
 parent_dir = str(Path(__file__).parent.parent)
 sys.path.append(parent_dir)
 from models import Drink
-from kupi import update_prices  
+from update_prices import update_all  
 
 
 app = Flask(__name__, template_folder="../templates", static_folder="../static")
 load_dotenv()
-DATABASE_URL=os.getenv('DATABASE_URL')
+DATABASE_URL=os.getenv('DATABASE_URL_UNPOOLED')
 engine = create_engine(DATABASE_URL)
 db_session = scoped_session(sessionmaker(bind=engine))
 
@@ -45,4 +45,4 @@ scheduler.add_job(func=run_async_update, trigger='interval', days=1)
 scheduler.start()
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)

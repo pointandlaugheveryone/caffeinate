@@ -7,7 +7,7 @@ def clear(drink: Drink):
     drink.discount = False
     drink.discount_cost = 0
 
-async def update_prices():
+async def update_all():
     parser = KupiParser()
     drinks = session.query(Drink).all()
     stores = session.query(Store).all()
@@ -20,7 +20,7 @@ async def update_prices():
                 filtered_offers = []
                 for offer in raw.offers:
                     store_name = offer.offered_by if isinstance(offer.offered_by, str) else getattr(offer.offered_by, 'name', str(offer.offered_by))
-                    if store_name. lower() in stores_table:
+                    if store_name.lower() in stores_table:
                         filtered_offers.append(offer)
 
                 if filtered_offers:
@@ -33,8 +33,8 @@ async def update_prices():
                         if isinstance(filtered_offers[0]. offered_by, str):
                             store_name = filtered_offers[0].offered_by
                         else:
-                            store_name = getattr(filtered_offers[0]. offered_by, 'name', str(filtered_offers[0]. offered_by))
-                        drink.store = stores_table[store_name. lower()]
+                            store_name = getattr(filtered_offers[0].offered_by, 'name', str(filtered_offers[0]. offered_by))
+                        drink.store = stores_table[store_name.lower()]
                     else: clear(drink)
                 else: clear(drink)
                     
@@ -49,4 +49,4 @@ async def update_prices():
         
 
 if __name__ == "__main__":
-    asyncio.run(update_prices())
+    asyncio.run(update_all())

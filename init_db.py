@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker
 from models import Base, Store, Drink
 
 
-DATABASE_URL=os.getenv('DATABASE_URL')
+DATABASE_URL=os.getenv('DATABASE_URL_UNPOOLED')
 engine = create_engine(DATABASE_URL)
 metadata = MetaData()
 Base.metadata.create_all(engine)

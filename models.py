@@ -31,7 +31,7 @@ class Drink(Base):
     store = relationship('Store')
 
 
-DATABASE_URL=os.getenv('DATABASE_URL')
+DATABASE_URL=os.getenv('DATABASE_URL_UNPOOLED')
 engine = create_engine(DATABASE_URL)
 Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)

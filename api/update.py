@@ -1,6 +1,7 @@
 import asyncio
-from kupi import update_prices
+from update_prices import update_all
 
 async def handler(event, context):
-    await update_prices()
-    return {"status": "Update completed"}
+    await update_all()
+
+    

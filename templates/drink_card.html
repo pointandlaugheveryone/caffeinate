@@ -1,0 +1,29 @@
+<div class="col">
+  <div class="card drink-card h-100 shadow-sm position-relative">
+    {% if drink.store and drink.store.logo_url %}
+    <img src="{{ url_for('static', filename=drink.store.logo_url) }}"
+         alt="{{ drink.store.display_name }}"
+         class="store-logo-badge">
+    {% endif %}
+
+    {% if drink.image_url %}
+    <div class="card-img-wrapper text-center p-2">
+      <img src="{{ url_for('static', filename=drink.image_url) }}"
+           class="drink-hero-img"
+           alt="{{ drink.name }}">
+    </div>
+    {% endif %}
+
+    <div class="card-body d-flex flex-column">
+      <div class="drink-card-header d-flex align-items-center gap-3 flex-wrap">
+        <div class="d-flex align-items-center gap-2 flex-grow-1">
+          <h5 class="card-title mb-0">{{ drink.display_name }}</h5>
+        </div>
+        <div class="text-end ms-auto">
+          <span class="drink-price">{{ drink.discount_cost }} Kč</span>
+          <div class="drink-amount">{{ drink.offered_amount }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

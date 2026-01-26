@@ -10,7 +10,7 @@
 .dark-mode .card {
     background-color: #1e1e1e;
     border-color: #333333;
-    color:#ffffffd4;
+    color: #ffffffd4;
 }
 
 .dark-mode .btn-dark {
@@ -30,13 +30,19 @@
     background-color: #555555;
 }
 
-body, .navbar, .card, .btn-dark, a.nav-link, .card-title, .card-text {
+body,
+.navbar,
+.card,
+.btn-dark,
+a.nav-link,
+.card-title,
+.card-text {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .footer-link {
     text-decoration: none;
-    color:#b1b1b1
+    color: #b1b1b1
 }
 
 .footer-link:hover {
@@ -52,16 +58,16 @@ body, .navbar, .card, .btn-dark, a.nav-link, .card-title, .card-text {
     padding-bottom: 2rem;
 }
 
-.dark-mode .footer .text-muted{
+.dark-mode .footer .text-muted {
     color: #555555;
 }
 
 .lead {
     white-space: pre-line;
-  }
+}
 
 .link {
-    color:#121212;
+    color: #121212;
 }
 
 .store-logo {
@@ -69,6 +75,30 @@ body, .navbar, .card, .btn-dark, a.nav-link, .card-title, .card-text {
     margin-left: auto;
     margin-right: 0;
 }
+
+.card-img-wrapper {
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.drink-hero-img {
+    max-height: 180px;
+    width: auto;
+    object-fit: contain;
+}
+
+.store-logo-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    height: 34px;
+    width: auto;
+    padding: 4px 6px;
+    border-radius: 6px;
+}
+
 
 @media (max-width: 720px) {
     #zeroModeToggle {
@@ -99,10 +129,50 @@ body, .navbar, .card, .btn-dark, a.nav-link, .card-title, .card-text {
 }
 
 .navbar-brand img {
-    /* Adjust the size and alignment as needed */
     width: 30px;
     height: 30px;
 }
 
+.drink-card {
+    border: none !important;
+    background-color: #F0EFEB;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
 
+.drink-card:hover {
+    transform: translateY(-2px);
+}
 
+body.dark-mode .drink-card {
+    background-color: #22223b;
+}
+
+.drink-card-header .card-title {
+    font-size: 1.05rem;
+}
+
+.store-logo-inline {
+    height: 26px;
+    width: auto;
+    object-fit: contain;
+}
+
+.drink-price {
+    color: #c1121f;
+    font-weight: 700;
+    display: block;
+}
+
+.drink-amount {
+    font-size: 0.85em;
+    color: #6c757d;
+}
+
+body.dark-mode .drink-card-header .card-title,
+body.dark-mode .drink-amount {
+    color: #f8f9fa;
+}
+
+body.dark-mode .drink-price {
+    color: #ff7b7b;
+}
