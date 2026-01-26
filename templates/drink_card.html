@@ -1,28 +1,21 @@
 <div class="col">
   <div class="card drink-card h-100 shadow-sm position-relative">
     {% if drink.store and drink.store.logo_url %}
-    <img src="{{ url_for('static', filename=drink.store.logo_url) }}"
-         alt="{{ drink.store.display_name }}"
-         class="store-logo-badge">
+    <img src="{{ url_for('static', filename=drink.store.logo_url) }}" alt="{{ drink.store.display_name }}"
+      class="store-logo-badge">
     {% endif %}
 
     {% if drink.image_url %}
     <div class="card-img-wrapper text-center p-2">
-      <img src="{{ url_for('static', filename=drink.image_url) }}"
-           class="drink-hero-img"
-           alt="{{ drink.name }}">
+      <img src="{{ url_for('static', filename=drink.image_url) }}" class="drink-hero-img" alt="{{ drink.name }}">
     </div>
     {% endif %}
 
-    <div class="card-body d-flex flex-column">
-      <div class="drink-card-header d-flex align-items-end gap-3 flex-wrap">
-        <div class="d-flex gap-2 flex-grow-1">
-          <h5 class="card-title mb-0">{{ drink.display_name }}</h5>
-        </div>
-        <div class="text-end ms-auto">
-          <div class="drink-amount">{{ drink.offered_amount }}</div>
-          <span class="drink-price">{{ drink.discount_cost }} Kč</span>
-        </div>
+    <div class="text-container card-body d-flex flex-column">
+      <div class="drink-amount text-end mb-1">{{ drink.offered_amount }}</div>
+      <div class="drink-card-header d-flex justify-content-between align-items-baseline">
+        <h5 class="card-title mb-0">{{ drink.display_name }}</h5>
+        <span class="drink-price ms-3">{{ drink.discount_cost }} Kč</span>
       </div>
     </div>
   </div>
