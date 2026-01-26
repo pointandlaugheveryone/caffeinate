@@ -9,7 +9,7 @@ def clear(drink: Drink):
 
 async def update_prices():
     parser = KupiParser()
-    drinks = session. query(Drink).all()
+    drinks = session.query(Drink).all()
     stores = session.query(Store).all()
     stores_table = {store.name: store for store in stores}
 
@@ -25,7 +25,7 @@ async def update_prices():
 
                 if filtered_offers:
                     lowest_cost = getattr(filtered_offers[0], 'price', getattr(filtered_offers[0], 'cost', 0))
-                    if lowest_cost and lowest_cost < drink.normal_cost:
+                    if lowest_cost:
                         drink.discount = True
                         drink.discount_cost = lowest_cost
                         drink.offered_amount = getattr(filtered_offers[0], 'amount', '')

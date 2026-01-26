@@ -21,7 +21,6 @@ class Drink(Base):
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(500), nullable=False, unique=True)
     display_name = Column(String(500), nullable=False, unique=True)
-    normal_cost = Column(Float, nullable=False)
     discount_cost = Column(Float, nullable=False)
     image_url = Column(String(200))
     is_zero = Column(Boolean, default=False)
