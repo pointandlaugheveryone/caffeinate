@@ -81,22 +81,23 @@ a.nav-link,
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-grow: 1;
 }
 
 .drink-hero-img {
-    max-height: 180px;
+    max-height: 250px;
     width: auto;
     object-fit: contain;
+    padding-top: 50px;
 }
 
 .store-logo-badge {
     position: absolute;
     top: 12px;
     left: 12px;
-    height: 34px;
-    width: auto;
-    padding: 4px 6px;
-    border-radius: 6px;
+    max-height: 56px;
+    max-width: 64px;
+    padding: 5px 5px;
 }
 
 
@@ -135,8 +136,9 @@ a.nav-link,
 
 .drink-card {
     border: none !important;
-    background-color: #F0EFEB;
+    background-color: #EFEFEF;
     transition: background-color 0.2s ease, transform 0.2s ease;
+    border-radius: 6%;
 }
 
 .drink-card:hover {
@@ -144,28 +146,28 @@ a.nav-link,
 }
 
 body.dark-mode .drink-card {
-    background-color: #22223b;
+    background-color: #212529;
 }
 
 .drink-card-header .card-title {
-    font-size: 1.05rem;
-}
-
-.store-logo-inline {
-    height: 26px;
-    width: auto;
-    object-fit: contain;
+    font-size: 1.25rem;
+    font-weight: 550;
 }
 
 .drink-price {
+    font-size: 1.2rem;
     color: #c1121f;
     font-weight: 700;
     display: block;
 }
 
 .drink-amount {
-    font-size: 0.85em;
+    font-size: 1.05em;
     color: #6c757d;
+}
+
+.drink-card-header {
+    padding: 2% 2% 1%;
 }
 
 body.dark-mode .drink-card-header .card-title,
@@ -175,4 +177,9 @@ body.dark-mode .drink-amount {
 
 body.dark-mode .drink-price {
     color: #ff7b7b;
+}
+
+.store-logo-row {
+    display: flex;
+    align-items: center;
 }
