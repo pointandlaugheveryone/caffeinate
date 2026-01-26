@@ -16,9 +16,10 @@ async def update_all():
     try: 
         for drink in drinks: 
             try:
-                raw = await parser. get_prices(drink.name)
+                raw = await parser.get_prices(drink.name)
                 filtered_offers = []
                 for offer in raw.offers:
+                    # check both object and json attribute to make pydantic quiet
                     store_name = offer.offered_by if isinstance(offer.offered_by, str) else getattr(offer.offered_by, 'name', str(offer.offered_by))
                     if store_name.lower() in stores_table:
                         filtered_offers.append(offer)

@@ -31,14 +31,10 @@ def check_result(url: str, status_code: int, body: str):
     # Extract amount values (eg 2 l bottle or so)
     amounts = []
     for div in amount_divs:
-        amount_text = div.text.strip().replace('\xa0', '')  # remove unicode special formatting
-        start_index = amount_text.find('/') + 1
-        end_index = amount_text.find('l') + 1 
-
-        extracted_amount = amount_text[start_index:end_index].strip()
-        amounts.append(extracted_amount)
+        amount_text = div.text.replace('/','').strip()
+        amounts.append(amount_text)
         
-    # Add drink amount to each offer 
+    # Add drink amount to each offer if its an offer im filling in (due to duplicates for same store)
     if 'offers' in result_json and 'offers' in result_json['offers']:
         offers = result_json['offers']['offers']
 

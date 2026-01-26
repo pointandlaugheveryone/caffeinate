@@ -1,3 +1,11 @@
+html,
+body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
 .dark-mode {
     background-color: #121212;
     color: #ffffff;
@@ -42,7 +50,12 @@ a.nav-link,
 
 .footer-link {
     text-decoration: none;
-    color: #b1b1b1
+    color: #b1b1b1;
+    font-size: 18px;
+}
+
+.nav-link {
+    font-size: 18px !important;
 }
 
 .footer-link:hover {
@@ -76,6 +89,10 @@ a.nav-link,
     margin-right: 0;
 }
 
+.zero-mode-toggle {
+    font-size: 18px !important;
+}
+
 .card-img-wrapper {
     min-height: 200px;
     display: flex;
@@ -88,7 +105,7 @@ a.nav-link,
     max-height: 250px;
     width: auto;
     object-fit: contain;
-    padding-top: 50px;
+    padding-top: 60px;
 }
 
 .store-logo-badge {
@@ -102,9 +119,13 @@ a.nav-link,
 
 
 @media (max-width: 720px) {
-    #zeroModeToggle {
+    #zero-mode-toggle {
         background-color: black;
         color: #ffffffd4;
+        font-size: 20px;
+        display: block;
+        align-self: center !important;
+        position: relative;
     }
 
     .navbar-brand.d-lg-none {
@@ -115,10 +136,44 @@ a.nav-link,
     .navbar-brand.d-lg-none {
         margin-bottom: 0;
     }
+
+    .store-logo-badge {
+        left: 6px !important;
+        height: 45px;
+    }
+
+    .text-container {
+        margin: 2pt 2pt 1pt !important;
+    }
+
+    .drink-card-header .drink-price {
+        font-size: 17px !important;
+    }
+
+    .drink-card-header .card-title {
+        font-size: 17px !important;
+    }
+
+    .nav-link {
+        padding: 14px 0px;
+        font-size: 20px;
+    }
+
+
+
+    .button.navbar-toggler {
+        padding-bottom: 10px !important;
+    }
 }
 
 @media screen and (min-width: 720px) {
-    #zeroModeToggle {
+    .navbar-brand img {
+        width: 40px !important;
+        height: 40px !important;
+    }
+
+
+    #zero-mode-toggle {
         position: absolute;
         right: 10px;
         top: 50%;
@@ -138,7 +193,7 @@ a.nav-link,
     border: none !important;
     background-color: #EFEFEF;
     transition: background-color 0.2s ease, transform 0.2s ease;
-    border-radius: 16px / 16px;
+    border-radius: 20px / 20px;
 }
 
 .drink-card:hover {
@@ -146,23 +201,19 @@ a.nav-link,
 }
 
 body.dark-mode .drink-card {
-    background-color: #212529;
+    background-color: #21252987;
 }
 
 .drink-card-header .card-title {
-    font-size: 18px;
-    font-weight: 550;
-    padding-top: 2px;
-}
-
-.text-container {
-    padding: 2% 2% 1%
+    font-size: 20px;
+    font-weight: 500;
 }
 
 .drink-price {
     font-size: 20px;
     color: #c1121f;
     font-weight: 550;
+    text-align: right;
 }
 
 .drink-amount {
@@ -182,4 +233,16 @@ body.dark-mode .drink-price {
 .store-logo-row {
     display: flex;
     align-items: center;
+}
+
+.text-container {
+    margin: 6pt 6pt 3pt;
+}
+
+.container {
+    flex: 1;
+}
+
+.footer {
+    margin-top: auto;
 }
